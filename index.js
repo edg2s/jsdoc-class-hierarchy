@@ -31,19 +31,23 @@ var findDirectChildren = function ( className ) {
 	return children;
 }
 
+var linkTo = function ( className ) {
+	return '<a href="' + className + '.html">' + className + '</a>';
+}
+
 var makeHierarchyList = function ( classes ) {
 	if ( classes.length === 0 ) {
 		return '';
 	} else {
 		var className = classes.shift();
-		return '<ul><li>' + className + ' ' + makeHierarchyList( classes ) + '</li></ul>'
+		return '<ul><li>' + linkTo( className ) + ' ' + makeHierarchyList( classes ) + '</li></ul>'
 	}
 }
 
 var makeChildrenList = function ( classes ) {
 	var list = '<ul>';
 	classes.forEach( function ( className ) {
-		list += '<li>' + className + '</li>';
+		list += '<li>' + linkTo( className ) + '</li>';
 	})
 	list += '</ul>';
 	return list;
