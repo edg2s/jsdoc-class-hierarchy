@@ -58,7 +58,6 @@ function linkTo( className ) {
 /**
  * Recursive function that creates a nested list of a class' parents.
  *
- *
  * @param {string[]} classes Array of class' parent's names
  * @returns {string} HTML string of a `<ul>`
  */
@@ -105,7 +104,7 @@ exports.handlers = {
 	processingComplete: function(e) {
 		// Traverse list and get all parents
 		e.doclets.forEach( function (d) {
-      if ( d.kind === 'class'	) {
+			if ( d.kind === 'class'	) {
 				var html = '';
 
 				if (
@@ -127,7 +126,7 @@ exports.handlers = {
 				// Otherwise, using += appends 'undefined' as a string
 
 				d.description = '<small>' + html + '</small>' + d.description;
-      }
-    });
-  }
+			}
+		});
+	}
 };
