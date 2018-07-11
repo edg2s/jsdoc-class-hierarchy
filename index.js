@@ -1,11 +1,11 @@
 'use strict';
 
+var env = require( 'jsdoc/env' );
 // We use this only for debugging
-// var logger = require('jsdoc/util/logger');
+// var logger = require( 'jsdoc/util/logger' );
 
-// TODO Get config
-// Should the HTML lists be added to the doclet description?
-var showList = true;
+var conf = env.conf.opts[ 'class-hierarchy' ] || {};
+var showList = conf.showList === undefined ? false : conf.showList;
 
 // Key map of classes and what they inherit from:
 // { 'childClassName': 'parentClassName' }
