@@ -5,6 +5,8 @@ var logger = require('jsdoc/util/logger');
 // TODO This might be useless
 var helper = require('jsdoc/util/templateHelper');
 
+// Key map of classes and what they inherit from:
+// { 'childClassName': 'parentClassName' }
 var parents = {};
 
 var findAllParents = function ( p ) {
@@ -47,18 +49,18 @@ var makeChildrenList = function ( classes ) {
 }
 
 exports.handlers = {
-	processingComplete: function(e) {
-		// Make a list of parents
-    e.doclets.forEach( function (d) {
-      if (
-				d.kind === 'class' &&
-				d.augments !== undefined &&
-				d.augments.length > 0
-			) {
-        parents[ d.longname ] = d.augments[0];
-      }
-    });
+	newDoclet: function ( e ) {
+		var doclet = e.doclet;
+		if (
+			doclet.kind === 'class' &&
+			doclet.augments !== undefined &&
+			doclet.augments.length > 0
+		) {
+			parents[ doclet.longname ] = doclet.augments[ 0 ];
+		}
+	},
 
+	processingComplete: function(e) {
 		// Traverse list and get all parents
 		e.doclets.forEach( function (d) {
       if (
