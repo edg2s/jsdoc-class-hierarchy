@@ -68,9 +68,10 @@ exports.handlers = {
 			) {
 				d.hierarchy = findAllParents( [ d.longname ] );
 				d.children = findDirectChildren( d.longname );
-				d.description += '<h3>Hierarchy</h3>' + makeHierarchyList( d.hierarchy );
-				d.description += '<h3>Children</h3>' + makeChildrenList( d.children );
-        logger.warn( d.hierarchy );
+
+				// Pass a copy of the array
+				d.description += '<h3>Hierarchy</h3>' + makeHierarchyList( d.hierarchy.slice() );
+				d.description += '<h3>Children</h3>' + makeChildrenList( d.children.slice() );
       }
     });
   }
