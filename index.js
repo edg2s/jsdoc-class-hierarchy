@@ -1,9 +1,10 @@
 'use strict';
 
+// TODO We use this only for debugging
 var logger = require('jsdoc/util/logger');
 
-// TODO This might be useless
-var helper = require('jsdoc/util/templateHelper');
+// TODO Get config
+var showList = true;
 
 // Key map of classes and what they inherit from:
 // { 'childClassName': 'parentClassName' }
@@ -63,17 +64,28 @@ exports.handlers = {
 	processingComplete: function(e) {
 		// Traverse list and get all parents
 		e.doclets.forEach( function (d) {
-      if (
-				d.kind === 'class' &&
-				d.augments !== undefined &&
-				d.augments.length > 0
-			) {
-				d.hierarchy = findAllParents( [ d.longname ] );
-				d.children = findDirectChildren( d.longname );
+      if ( d.kind === 'class'	) {
+				var list = '';
 
-				// Pass a copy of the array
-				d.description += '<h3>Hierarchy</h3>' + makeHierarchyList( d.hierarchy.slice() );
-				d.description += '<h3>Children</h3>' + makeChildrenList( d.children.slice() );
+				if (
+					d.augments !== undefined &&
+					d.augments.length > 0
+				) {
+					d.hierarchy = findAllParents( [ d.longname ] );
+					if ( d.hierarchy.length > 0 && showList ) {
+						list += '<h3>Hierarchy</h3>' + makeHierarchyList( d.hierarchy.slice() );
+					}
+				}
+
+				d.children = findDirectChildren( d.longname );
+				if ( d.children.length > 0 && showList ) {
+					list += '<h3>Children</h3>' + makeChildrenList( d.children.slice() );
+				}
+
+				d.description = d.description === undefined ? '' : d.description;
+				// Otherwise, using += appends 'undefined' as a string
+
+				d.description = '<small>' + list + '</small>' + d.description;
       }
     });
   }
