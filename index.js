@@ -113,19 +113,25 @@ exports.handlers = {
 				) {
 					d.hierarchy = findAllParents( [ d.longname ] );
 					if ( d.hierarchy.length > 0 && showList ) {
-						html += '<h3>Hierarchy</h3>' + makeHierarchyList( d.hierarchy.slice() );
+						html += '<h3 style="margin:0;">Hierarchy</h3>' + makeHierarchyList( d.hierarchy.slice() );
 					}
 				}
 
 				d.children = findDirectChildren( d.longname );
 				if ( d.children.length > 0 && showList ) {
-					html += '<h3>Children</h3>' + makeChildrenList( d.children.slice() );
+					html += '<h3 style="margin:0;">Children</h3>' + makeChildrenList( d.children.slice() );
 				}
 
 				d.description = d.description === undefined ? '' : d.description;
 				// Otherwise, using += appends 'undefined' as a string
 
-				d.description = '<small>' + html + '</small>' + d.description;
+				d.description = '<div style="' +
+					'border: 1px solid #c8ccd1;' +
+					'background:#eaecf0;' +
+					'padding: 10px;' +
+					'font-size: x-small;' +
+					'float: right;' +
+					'">' + html + '</div>' + d.description;
 			}
 		});
 	}
