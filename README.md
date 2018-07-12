@@ -18,7 +18,6 @@ Add to the plugins in your JSDoc config:
 ```json
 {
   "plugins": [
-    "plugins/markdown",
     "node_modules/jsdoc-class-hierarchy"
   ]
 }
@@ -40,18 +39,16 @@ plugin:
     "node_modules/jsdoc-class-hierarchy"
   ],
   "opts": {
-    "class-hierarchy": {
-      "showList": true
-    }
+    "class-hierarchy": { "showList": true }
   }
 }
 ```
 
 It will result in something like this:
 
-<img 
-  width="813" 
-  alt="class hierarchy screenshot" 
+<img
+  width="813"
+  alt="class hierarchy screenshot"
   src="https://user-images.githubusercontent.com/9491/42612314-46f8bc5e-85b8-11e8-9712-e2f04974be48.png">
 
 If you don't like this display you can update your theme to show this data
