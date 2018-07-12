@@ -1,0 +1,27 @@
+{
+  "name": "jsdoc-class-hierarchy",
+  "version": "1.0.0",
+  "description": "JSDoc plugin to add class hierarchy data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prtksxna/jsdoc-class-hierarchy.git"
+  },
+  "keywords": [
+    "jsdoc",
+    "jsdoc-plugin",
+    "plugin",
+    "jsdoc3",
+    "class",
+    "hierarchy"
+  ],
+  "author": "Prateek Saxena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prtksxna/jsdoc-class-hierarchy/issues"
+  },
+  "homepage": "https://github.com/prtksxna/jsdoc-class-hierarchy#readme"
+}
