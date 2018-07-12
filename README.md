@@ -50,9 +50,9 @@ plugin:
 It will result in something like this:
 
 <img 
-  width="309" 
+  width="813" 
   alt="class hierarchy screenshot" 
-  src="https://user-images.githubusercontent.com/9491/42609426-33d87ef6-85aa-11e8-8903-c30fe1810af3.png">
+  src="https://user-images.githubusercontent.com/9491/42612314-46f8bc5e-85b8-11e8-9712-e2f04974be48.png">
 
 If you don't like this display you can update your theme to show this data
 however you like. Doclets of classes that have subclasses will have a
