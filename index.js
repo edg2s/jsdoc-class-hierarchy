@@ -122,17 +122,19 @@ exports.handlers = {
 					html += '<h3 style="margin:0;">Children</h3>' + makeChildrenList( d.children.slice() );
 				}
 
-				d.description = d.description === undefined ? '' : d.description;
-				// Otherwise, using += appends 'undefined' as a string
+				if ( showList ) {
+					d.description = d.description === undefined ? '' : d.description;
+					// Otherwise, using += appends 'undefined' as a string
 
-				d.description = '<div style="' +
-					'border: 1px solid #c8ccd1;' +
-					'background:#eaecf0;' +
-					'padding: 10px;' +
-					'font-size: x-small;' +
-					'float: right;' +
-					'">' + html + '</div>' + d.description;
-			}
+					d.description = '<div style="' +
+						'border: 1px solid #c8ccd1;' +
+						'background:#eaecf0;' +
+						'padding: 10px;' +
+						'font-size: x-small;' +
+						'float: right;' +
+						'">' + html + '</div>' + d.description;
+					}
+				}
 		});
 	}
 };
