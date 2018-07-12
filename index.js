@@ -122,7 +122,13 @@ exports.handlers = {
 					html += '<h3 style="margin:0;">Children</h3>' + makeChildrenList( d.children.slice() );
 				}
 
-				if ( showList ) {
+				if (
+					showList &&
+					(
+						( d.children && d.children.length > 0 ) ||
+						( d.hierarchy && d.hierarchy.length > 0 )
+					)
+				) {
 					d.description = d.description === undefined ? '' : d.description;
 					// Otherwise, using += appends 'undefined' as a string
 
