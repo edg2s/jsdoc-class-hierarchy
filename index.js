@@ -129,16 +129,13 @@ exports.handlers = {
 						( d.hierarchy && d.hierarchy.length > 0 )
 					)
 				) {
-					d.description = d.description === undefined ? '' : d.description;
-					// Otherwise, using += appends 'undefined' as a string
-
 					d.description = '<div style="' +
 						'border: 1px solid #c8ccd1;' +
 						'background:#eaecf0;' +
 						'padding: 10px;' +
 						'font-size: x-small;' +
 						'float: right;' +
-						'">' + html + '</div>' + d.description;
+						'">' + html + '</div>' + ( d.description || '' );
 					}
 				}
 		});
